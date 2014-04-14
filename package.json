@@ -24,6 +24,7 @@
     "lodash": "^2.4.1"
   },
   "dependencies": {
-    "moment": "^2.6.0"
+    "moment": "^2.6.0",
+    "readable-stream": "^1.0.26-4"
   }
 }
