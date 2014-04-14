@@ -17,7 +17,6 @@ function SrtStream() {
 
 util.inherits(SrtStream, Transform);
 
-
 SrtStream.prototype.end = function () {
     this.push(JSON.stringify(this.element));
     this.emit('end');
@@ -51,8 +50,8 @@ SrtStream.prototype._processLine = function(line) {
         case 'PARSE_TIME':
             var matches = line.match(/(\d+):(\d{2}):(\d{2}),(\d{3})\s*-->\s*(\d+):(\d{2}):(\d{2}),(\d{3})/);
             if(matches) {
-                self.element.start = moment.duration(matches[1] + ':' + matches[2] + matches[3] + '.' + matches[4]).asMilliseconds();
-                self.element.end = moment.duration(matches[5] + ':' + matches[6] + matches[7] + '.' + matches[8]).asMilliseconds();
+                self.element.start = moment.duration({ minutes: matches[1], seconds: matches[2], milliseconds: matches[3]}).asMilliseconds();
+                self.element.end = moment.duration({ minutes: matches[5], seconds: matches[6], milliseconds: matches[7]}).asMilliseconds();
             }
             self.state = 'PARSE_TEXT';
         break;

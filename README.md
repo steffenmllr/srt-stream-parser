@@ -36,7 +36,6 @@ Where in the single data entry concists of:
 ```
 
 
-
 [MIT License](http://en.wikipedia.org/wiki/MIT_License)
 
 [npm-url]: https://npmjs.org/package/srt-stream-parser

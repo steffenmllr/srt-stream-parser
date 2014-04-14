@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tape test/test.js"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,8 @@
   },
   "homepage": "https://github.com/steffenmllr/srt-stream-parser",
   "devDependencies": {
-    "tape": "^2.12.3"
+    "tape": "^2.12.3",
+    "lodash": "^2.4.1"
   },
   "dependencies": {
     "through2": "^0.4.1"
