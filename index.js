@@ -1,7 +1,7 @@
 // Most of this is shamlessly copied from:
 // https://github.com/rvagg/csv2
 
-var  Transform = require('stream').Transform || require('readable-stream/transform'),
+var  Transform = require('stream').Transform,
     util = require('util'),
     moment = require('moment');
 
