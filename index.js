@@ -6,6 +6,7 @@ var  Transform = require('stream').Transform || require('readable-stream/transfo
     moment = require('moment');
 
 function SrtStream() {
+    var self = this;
     if (!(this instanceof SrtStream)) {
         return new SrtStream();
     }
@@ -16,6 +17,11 @@ function SrtStream() {
 
 util.inherits(SrtStream, Transform);
 
+
+SrtStream.prototype.end = function () {
+    this.push(JSON.stringify(this.element));
+    this.emit('end');
+};
 
 SrtStream.prototype._reset = function () {
     this.state = 'PARSE_NUMBER';
@@ -44,8 +50,10 @@ SrtStream.prototype._processLine = function(line) {
 
         case 'PARSE_TIME':
             var matches = line.match(/(\d+):(\d{2}):(\d{2}),(\d{3})\s*-->\s*(\d+):(\d{2}):(\d{2}),(\d{3})/);
-            self.element.start = moment.duration(matches[1] + ':' + matches[2] + matches[3] + '.' + matches[4]).asMilliseconds();
-            self.element.end = moment.duration(matches[5] + ':' + matches[6] + matches[7] + '.' + matches[8]).asMilliseconds();
+            if(matches) {
+                self.element.start = moment.duration(matches[1] + ':' + matches[2] + matches[3] + '.' + matches[4]).asMilliseconds();
+                self.element.end = moment.duration(matches[5] + ':' + matches[6] + matches[7] + '.' + matches[8]).asMilliseconds();
+            }
             self.state = 'PARSE_TEXT';
         break;
 
