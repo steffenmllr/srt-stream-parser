@@ -1,0 +1,28 @@
+{
+  "name": "srt-stream-parser",
+  "version": "0.0.0",
+  "description": "srt-stream-parser =================",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/steffenmllr/srt-stream-parser.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/steffenmllr/srt-stream-parser/issues"
+  },
+  "homepage": "https://github.com/steffenmllr/srt-stream-parser",
+  "devDependencies": {
+    "tape": "^2.12.3"
+  },
+  "dependencies": {
+    "through2": "^0.4.1"
+  }
+}
