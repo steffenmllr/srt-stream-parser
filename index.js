@@ -29,7 +29,7 @@ SrtStream.prototype._reset = function () {
 
 SrtStream.prototype._processSRT = function(last) {
     var lines = this._rawbuf.split(/\r?\n/), i;
-    for (i = 0; i < lines.length - 1; i++) {
+    for (i = 0; i <= lines.length - 1; i++) {
         this._processLine(lines[i]);
     }
     if (!last) {
