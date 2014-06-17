@@ -50,8 +50,8 @@ SrtStream.prototype._processLine = function(line) {
         case 'PARSE_TIME':
             var matches = line.match(/(\d+):(\d{2}):(\d{2}),(\d{3})\s*-->\s*(\d+):(\d{2}):(\d{2}),(\d{3})/);
             if(matches) {
-                self.element.start = moment.duration({ minutes: matches[1], seconds: matches[2], milliseconds: matches[3]}).asMilliseconds();
-                self.element.end = moment.duration({ minutes: matches[5], seconds: matches[6], milliseconds: matches[7]}).asMilliseconds();
+                self.element.start = moment.duration({ hours: matches[1], minutes: matches[2], seconds: matches[3], milliseconds: matches[4]}).asMilliseconds();
+                self.element.end = moment.duration({ hours: matches[5], minutes: matches[6], seconds: matches[7], milliseconds: matches[8]}).asMilliseconds();
             }
             self.state = 'PARSE_TEXT';
         break;
