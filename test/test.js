@@ -21,7 +21,7 @@ tape('srt reading', function (t) {
         }
         subutitles.push(data);
     }).on('end', function () {
-        t.deepEqual(_.find(subutitles, {id: '1263'}), { dialogs: [ 'But what?' ], id: '1263', start: 113051, end: 113052 }, 'subtitle id');
+        t.deepEqual(_.find(subutitles, {id: '1263'}), { dialogs: [ 'But what?' ], id: '1263', start: 6831616, end: 6832658 }, 'subtitle id');
         t.equal(subutitles.length, 1340, 'get all subtitles');
     });
 });
