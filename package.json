@@ -1,6 +1,6 @@
 {
   "name": "srt-stream-parser",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "srt-stream-parser =================",
   "main": "index.js",
   "directories": {
