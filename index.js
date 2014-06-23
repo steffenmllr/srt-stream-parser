@@ -52,8 +52,11 @@ SrtStream.prototype._processLine = function(line) {
             if(matches) {
                 self.element.start = moment.duration({ hours: matches[1], minutes: matches[2], seconds: matches[3], milliseconds: matches[4]}).asMilliseconds();
                 self.element.end = moment.duration({ hours: matches[5], minutes: matches[6], seconds: matches[7], milliseconds: matches[8]}).asMilliseconds();
+                self.state = 'PARSE_TEXT';
+            } else {
+                self._reset();
             }
-            self.state = 'PARSE_TEXT';
+
         break;
 
         case 'PARSE_TEXT':
